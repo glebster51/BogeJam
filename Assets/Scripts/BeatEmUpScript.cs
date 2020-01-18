@@ -22,16 +22,18 @@ public class BeatEmUpScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Invoke("HurtScript", 0.5f);
+            Invoke("HurtScript", 1f);
+
+            Debug.Log("Player gets hurt, Health:"+PlayerHP);
         }
     }
 
     void HurtScript()
     {
-        PlayerHP -= 10;
+        PlayerHP -= 1;
     }
 }
