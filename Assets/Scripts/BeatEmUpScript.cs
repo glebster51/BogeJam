@@ -81,13 +81,14 @@ public class BeatEmUpScript : MonoBehaviour
     public void SendDmg()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, handsRoot.right, 1f, DMGCollider);
+        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, handsRoot.right, 2.5f, DMGCollider);
         
         if (hit) {
         if (hit.transform.tag == "Enemy")
             {
-                Debug.Log("Enemy Hit");
-                hit.transform.parent.GetComponent<EnemyFight>().MobHurt();
+                Debug.Log("Enemy (" + hit.transform.name + ") Hit");
+                hit.transform.GetComponent<EnemyFight>().MobHurt();
+                
             }
         }
     }
