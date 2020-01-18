@@ -13,6 +13,9 @@ public class BeatEmUpScript : MonoBehaviour
     public bool HandChange;
     EnemyFight enema;
 
+    public Transform playerVisual;
+    public Transform handsRoot;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +27,16 @@ public class BeatEmUpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             HandChange = !HandChange;
             playerAnimator.SetTrigger("Attack");
             if (HandChange == true) {
-                playerAnimator.SetFloat("AttackType", 1);
+                playerAnimator.SetFloat("AttackType", 1f);
             }
             if (HandChange == false)
             {
-                playerAnimator.SetFloat("AttackType", 0);
+                playerAnimator.SetFloat("AttackType", 0f);
             }
             SendDmg();
         }
@@ -42,13 +45,15 @@ public class BeatEmUpScript : MonoBehaviour
 
         if (delta.x >= 0 && !facingRight)
         {
-            transform.localScale = new Vector2(1, 1); // or activate look right some other way
+            playerVisual.localScale = new Vector3(1f, 1f, 1f); // or activate look right some other way
+            handsRoot.localScale = new Vector3(1f, 1f, 1f);
             facingRight = true;
             positionFight = Vector2.right;
         }
         else if (delta.x < 0 && facingRight)
         {
-            transform.localScale = new Vector2(-1, 1); // activate looking left
+            playerVisual.localScale = new Vector2(-1, 1); // activate looking left
+            handsRoot.localScale = new Vector3(-1f, -1f, 1f);
             facingRight = false;
             positionFight = Vector2.left;
         }
