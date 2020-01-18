@@ -8,17 +8,21 @@ public class EnemyFight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        EnemyHP = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (EnemyHP <= 0)
+        {
+            Destroy(gameObject);
+        }
         
     }
 
-    void HurtScript()
+    public void MobHurt()
     {
-        EnemyHP -= 10;
+        EnemyHP = EnemyHP - 10;
     }
 }

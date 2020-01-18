@@ -11,6 +11,9 @@ public class BeatEmUpScript : MonoBehaviour
     public GameObject raybox;
     private Vector2 positionFight;
 
+    EnemyFight enema;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,9 @@ public class BeatEmUpScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-           // playerAnimator.SetTrigger("Hit");
-           
+
+            playerAnimator.SetTrigger("Attack");
+
             SendDmg();
         }
 
@@ -72,6 +76,7 @@ public class BeatEmUpScript : MonoBehaviour
         if (hit.transform.tag == "Enemy")
             {
                 Debug.Log("Enemy Hit");
+                hit.transform.GetComponent<EnemyFight>().MobHurt();
             }
         }
     }
