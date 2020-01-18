@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class DrawTransform : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float size = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmos()
     {
-        
+        Transform tr = transform;
+        Vector3 o = tr.position;
+        Vector3 r = tr.right;
+        Vector3 u = tr.up;
+        Vector3 f = tr.forward;
+
+
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(o, o + r * size);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(o, o + u * size);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(o, o + f * size);
     }
 }
