@@ -47,6 +47,12 @@ TextureImporter:
   - first:
       213: 7532258869345118793
     second: Maksim_1_14
+  - first:
+      213: 5134652852872436761
+    second: Maksim_1_15
+  - first:
+      213: -2588424189768018024
+    second: Maksim_1_16
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -465,6 +471,48 @@ TextureImporter:
       bones: []
       spriteID: 47c189c15c9735f4b8521a9071ee4851
       internalID: 7532258869345118793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maksim_1_15
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 48
+        width: 56
+        height: 14
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2958b0cdf67c0574a85b16d1eb04135d
+      internalID: 5134652852872436761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maksim_1_16
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 33
+        width: 56
+        height: 14
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a247dd8b571c00d468e906e88a4ad029
+      internalID: -2588424189768018024
       vertices: []
       indices: 
       edges: []
