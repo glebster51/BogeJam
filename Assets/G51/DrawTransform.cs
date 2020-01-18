@@ -14,15 +14,29 @@ public class DrawTransform : MonoBehaviour
         Vector3 u = tr.up;
         Vector3 f = tr.forward;
 
+        Color col;
+        
 
-
-        Gizmos.color = Color.red;
+        col = Color.red;
+        Gizmos.color = col;
         Gizmos.DrawLine(o, o + r * size);
 
-        Gizmos.color = Color.green;
+        col = Color.green;
+        Gizmos.color = col;
         Gizmos.DrawLine(o, o + u * size);
 
-        Gizmos.color = Color.blue;
+        col = Color.blue;
+        Gizmos.color = col;
         Gizmos.DrawLine(o, o + f * size);
+
+        col = Color.white;
+        Gizmos.color = col;
+        Gizmos.DrawWireSphere(o, size / 10f);
+        
+        col.a = 0.5f;
+        Gizmos.color = col;
+        Transform pt = tr.parent;
+        if (pt)
+           Gizmos.DrawLine(o, pt.position);
     }
 }
