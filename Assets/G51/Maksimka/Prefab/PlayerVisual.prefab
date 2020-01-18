@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 4449519330439172171}
   - component: {fileID: 4449519330439172168}
   - component: {fileID: 4449519330439172170}
+  - component: {fileID: 3170913205734897844}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -256,6 +257,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3170913205734897844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449519330439172169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936f3388c9538cf4a9fe2655ce988988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit: 0
+  spriteRenderers:
+  - {fileID: 7962837631798971630}
+  - {fileID: 6111390268450831512}
+  - {fileID: 5426398260201123136}
+  - {fileID: 4396857414822259806}
+  default_baseMat: {fileID: 2100000, guid: 90883918d1ce37b49a64dea2c59eb607, type: 2}
+  default_outlineMat: {fileID: 2100000, guid: 10957140f4ce05540b516ceafcec2bea, type: 2}
+  hit_baseMat: {fileID: 2100000, guid: 47470dcc514acd94fb6e0cb4ba997077, type: 2}
+  hit_outlineMat: {fileID: 2100000, guid: 112dd8f3151db804482335864922f0d8, type: 2}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4449519330504254405
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebf2de80c989474d864261bc0fd4832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 4449519330439172170}
 --- !u!1 &6213143012300358379
 GameObject:
   m_ObjectHideFlags: 0
