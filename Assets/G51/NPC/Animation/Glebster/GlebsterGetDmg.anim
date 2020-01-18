@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GusGetDmg
+  m_Name: GlebsterGetDmg
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -134,13 +134,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7833342403230415128, guid: 72f68150bd637734f925717f84794619,
+      value: {fileID: -1641202092183511041, guid: 47e8b2e1b49992741bc2f76bc3691d3f,
         type: 3}
     - time: 0.05
-      value: {fileID: -6163880363211401547, guid: 72f68150bd637734f925717f84794619,
+      value: {fileID: 5941287576777665161, guid: 47e8b2e1b49992741bc2f76bc3691d3f,
         type: 3}
     - time: 0.25
-      value: {fileID: -7833342403230415128, guid: 72f68150bd637734f925717f84794619,
+      value: {fileID: -1641202092183511041, guid: 47e8b2e1b49992741bc2f76bc3691d3f,
         type: 3}
     attribute: _sprite
     path: AnimRoot/Body/Body_Sprite
@@ -182,9 +182,9 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7833342403230415128, guid: 72f68150bd637734f925717f84794619, type: 3}
-    - {fileID: -6163880363211401547, guid: 72f68150bd637734f925717f84794619, type: 3}
-    - {fileID: -7833342403230415128, guid: 72f68150bd637734f925717f84794619, type: 3}
+    - {fileID: -1641202092183511041, guid: 47e8b2e1b49992741bc2f76bc3691d3f, type: 3}
+    - {fileID: 5941287576777665161, guid: 47e8b2e1b49992741bc2f76bc3691d3f, type: 3}
+    - {fileID: -1641202092183511041, guid: 47e8b2e1b49992741bc2f76bc3691d3f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
