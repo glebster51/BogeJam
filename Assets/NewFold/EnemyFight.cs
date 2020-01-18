@@ -18,7 +18,6 @@ public class EnemyFight : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
 
     public void MobHurt()

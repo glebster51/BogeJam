@@ -12,7 +12,7 @@ public class BeatEmUpScript : MonoBehaviour
     private Vector2 positionFight;
     public bool HandChange;
     EnemyFight enema;
-
+    public LayerMask DMGCollider;
     public Transform playerVisual;
     public Transform handsRoot;
 
@@ -81,13 +81,13 @@ public class BeatEmUpScript : MonoBehaviour
     public void SendDmg()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, positionFight, 1f);
+        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, handsRoot.right, 1f, DMGCollider);
         
         if (hit) {
         if (hit.transform.tag == "Enemy")
             {
                 Debug.Log("Enemy Hit");
-                hit.transform.GetComponent<EnemyFight>().MobHurt();
+                hit.transform.parent.GetComponent<EnemyFight>().MobHurt();
             }
         }
     }
