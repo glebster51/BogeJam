@@ -9,7 +9,7 @@ public class Move : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool isGrounded;
-  
+    public Animator playerAnimator;
     public LayerMask ground;
     // Start is called before the first frame update
     void Start()
@@ -50,6 +50,11 @@ public class Move : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         Vector2 movement = new Vector2(h * speed, rb.velocity.y);
         rb.velocity = Vector2.Lerp(rb.velocity, movement, 1);
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            playerAnimator.SetBool("run", true);
+        }
+        else { playerAnimator.SetBool("run", false); }
     }
 
 }
