@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7566714691028567311}
   - component: {fileID: 5955495171141913666}
   m_Layer: 0
-  m_Name: GlebsterEnemy
+  m_Name: EnemyGlebster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,11 +86,12 @@ MonoBehaviour:
   hauntedMob: 0
   attackingMob: 0
   sayAfter: 0
-  PlayerA: {fileID: 0}
   distance: 0
-  AnimaMob: {fileID: 0}
-  rbm: {fileID: 0}
-  mobVisual: {fileID: 0}
+  eyeDistance: 7
+  attackDistance: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7566714691274754340
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,9 +29,13 @@ public class EnemyAI : MonoBehaviour
         AnimaMob = GetComponent<EnemyFight>().AnimaMob;
         mobVisual = transform.GetChild(1);
 
+        
+        
+        
     }
 
     // Update is called once per frame
+    public LayerMask groundLayer;
     void Update()
     {
         Facing = distance < 0 ? 1 : -1;
@@ -42,8 +46,17 @@ public class EnemyAI : MonoBehaviour
         {
             AnimaMob.SetBool("Walk", true);
 
-            float movement = Facing * mobSpeed * Time.deltaTime;
-            rbm.position += Vector2.right * movement;
+            
+            
+            float movement = mobSpeed * Time.deltaTime;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
+            Vector2 norm = hit ? hit.normal : Vector2.up;
+            float angleNorm = Mathf.Min(Vector2.Angle(Vector2.up, norm) / 45, 1f);
+            Vector2 dir = Vector2.Lerp(Vector2.right * Facing, (Vector2.right * Facing + Vector2.up), angleNorm);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)dir * 10f);
+            rbm.velocity = rbm.velocity * (1 - angleNorm);
+            rbm.position += dir * movement;
 
             //transform.position += new Vector3(-1 * mobSpeed * Time.deltaTime, 0f, 0f);
         }

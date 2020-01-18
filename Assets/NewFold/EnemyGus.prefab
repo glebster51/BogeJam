@@ -89,6 +89,9 @@ MonoBehaviour:
   distance: 0
   eyeDistance: 10
   attackDistance: 1.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5836209239536190622
 GameObject:
   m_ObjectHideFlags: 0
