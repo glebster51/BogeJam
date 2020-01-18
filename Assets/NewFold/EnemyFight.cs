@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyFight : MonoBehaviour
 {
     public float EnemyHP;
+    public Animator AnimaMob;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,7 @@ public class EnemyFight : MonoBehaviour
     public void MobHurt()
     {
         EnemyHP = EnemyHP - 10;
+        AnimaMob.SetTrigger("getDmg");
+
     }
 }
