@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5836209238711322809}
   - component: {fileID: 5836209238711322808}
   - component: {fileID: 5836209238711322805}
+  - component: {fileID: 2686940831402941877}
   m_Layer: 0
   m_Name: EnemyGus
   m_TagString: Enemy
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 0
+  AnimaMob: {fileID: 0}
 --- !u!50 &5836209238711322805
 Rigidbody2D:
   serializedVersion: 4
@@ -60,14 +62,33 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 2
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2686940831402941877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836209238711322804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4843ad48ecaf2c6418159ffe79520d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobSpeed: 1
+  hauntedMob: 0
+  attackingMob: 0
+  sayAfter: 0
+  distance: 0
+  eyeDistance: 10
+  attackDistance: 1.5
 --- !u!1 &5836209239536190622
 GameObject:
   m_ObjectHideFlags: 0

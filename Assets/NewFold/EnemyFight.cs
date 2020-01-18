@@ -10,6 +10,7 @@ public class EnemyFight : MonoBehaviour
     void Start()
     {
         EnemyHP = 100;
+        AnimaMob = transform.GetChild(1).GetComponent<Animator>();
     }
 
     // Update is called once per frame

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7566714691028567299}
   - component: {fileID: 7566714691028567298}
   - component: {fileID: 7566714691028567311}
+  - component: {fileID: 5955495171141913666}
   m_Layer: 0
   m_Name: GlebsterEnemy
   m_TagString: Enemy
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 0
+  AnimaMob: {fileID: 0}
 --- !u!50 &7566714691028567311
 Rigidbody2D:
   serializedVersion: 4
@@ -68,6 +70,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5955495171141913666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566714691028567310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4843ad48ecaf2c6418159ffe79520d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobSpeed: 1
+  hauntedMob: 0
+  attackingMob: 0
+  sayAfter: 0
+  PlayerA: {fileID: 0}
+  distance: 0
+  AnimaMob: {fileID: 0}
+  rbm: {fileID: 0}
+  mobVisual: {fileID: 0}
 --- !u!1 &7566714691274754340
 GameObject:
   m_ObjectHideFlags: 0
