@@ -52,7 +52,9 @@ public class EnemyAI : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
             Vector2 norm = hit ? hit.normal : Vector2.up;
-            float angleNorm = Mathf.Min(Vector2.Angle(Vector2.up, norm) / 45, 1f);
+            //float angleNorm = Mathf.Min(Vector2.Angle(Vector2.up, new Vector2(norm.x * Facing, norm.y)) / 45, 1f);
+            float angle = Vector2.Angle(Vector2.up, new Vector2(norm.x * Facing, norm.y));
+            float angleNorm = ((int)Mathf.Sign(norm.x) == (int)Facing)? 0f : Mathf.Min(angle / 45, 1f);
             Vector2 dir = Vector2.Lerp(Vector2.right * Facing, (Vector2.right * Facing + Vector2.up), angleNorm);
             Debug.DrawLine(transform.position, transform.position + (Vector3)dir * 10f);
             rbm.velocity = rbm.velocity * (1 - angleNorm);
