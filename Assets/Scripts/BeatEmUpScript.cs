@@ -10,7 +10,7 @@ public class BeatEmUpScript : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
     public GameObject raybox;
     private Vector2 positionFight;
-
+    public bool HandChange;
     EnemyFight enema;
 
 
@@ -26,9 +26,15 @@ public class BeatEmUpScript : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-
+            HandChange = !HandChange;
             playerAnimator.SetTrigger("Attack");
-
+            if (HandChange == true) {
+                playerAnimator.SetFloat("AttackType", 1);
+            }
+            if (HandChange == false)
+            {
+                playerAnimator.SetFloat("AttackType", 0);
+            }
             SendDmg();
         }
 
