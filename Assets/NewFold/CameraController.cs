@@ -5,8 +5,8 @@ public class CameraController : MonoBehaviour
 {
 
     public float interpVelocity;
-    public float minDistance;
-    public float followDistance;
+    //public float minDistance;
+    //public float followDistance;
     public GameObject target;
     public Vector3 offset;
     Vector3 targetPos;
@@ -17,10 +17,11 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
+    Vector3 refVel = new Vector3();
     void FixedUpdate()
     {
         if (target)
-        {
+        {/*
             Vector3 posNoZ = transform.position;
             posNoZ.z = target.transform.position.z;
 
@@ -31,7 +32,17 @@ public class CameraController : MonoBehaviour
             targetPos = transform.position + (targetDirection.normalized * interpVelocity * Time.deltaTime);
 
             transform.position = Vector3.Lerp(transform.position, targetPos + offset, 0.25f);
+            */
 
+            Vector3 oldPos = transform.position;
+            
+            Vector3 mousePos = Camera.main.
+            
+            Vector3 targetPos = target.transform.position;
+            Vector3 newPos = Vector3.SmoothDamp(oldPos, targetPos, ref refVel, 0.5f);
+            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+            
+            
         }
     }
 }
