@@ -23,14 +23,15 @@ public class Speaker : MonoBehaviour
         Init();
         
         if (thisIsMaxim)
-            StartCoroutine(MaximRandomSay(Random.Range(3f, 10f)));
+            StartCoroutine(MaximRandomSay(Random.Range(10f, 30f)));
     }
 
     IEnumerator MaximRandomSay(float timer)
     {
        yield return new WaitForSeconds(timer);
+        Debug.Log("###################### РАНДОМНАЯ ФРАЗА");
         TrySay(randomSaysOnTimer);
-        StartCoroutine(MaximRandomSay(Random.Range(3f, 10f)));
+        StartCoroutine(MaximRandomSay(Random.Range(10f, 30f)));
     }
 
     void Init()
@@ -47,27 +48,47 @@ public class Speaker : MonoBehaviour
     {
         Init();
         TrySay(sayOnAwake);
+        Debug.Log("###################### ПРИ ПОЯВЛЕНИИ ПИЗДАНУТЬ");
     }
 
 
     public void SayHanted()
     {
         TrySay(sayOnHunted);
+        Debug.Log("###################### ВРАГ УВИДЕЛ МАКСИМКУ");
     }    
 
     public void SayAttack()
     {
-        TrySay(sayOnAttack);
+        if (!thisIsMaxim)
+        {
+            TrySay(sayOnAttack);
+        }
+        
+        Debug.Log("###################### ВРАГ АТАКУЕТ МАКСИМКУ");
     }
     
     public void SayGetDamage()
     {
-        TrySay(sayOnGetDamage);
+        if (thisIsMaxim)
+        {
+            if (Random.Range(0f,100f) <= 20f)
+            {
+                TrySay(sayOnGetDamage);
+            }
+        }
+        else
+        {
+            TrySay(sayOnGetDamage);
+        }
+        
+        Debug.Log("###################### ВРАГ ПОЛУЧИЛ ПИЗДЫ");
     }
 
     public void SayDead()
     {
         TrySay(sayOnDead);
+        Debug.Log("###################### ВРАГ ПРИСМЕРТИ");
     }
     
     //==============================================================

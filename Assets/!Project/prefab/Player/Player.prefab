@@ -223,7 +223,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b9560c1a5420ed4eb809619d737cace, type: 3}
   - {fileID: 8300000, guid: 6e6b9f65494ad444c99ac7a50b60f8b1, type: 3}
   sayOnHunted: []
-  sayOnAttack:
+  sayOnAttack: []
+  sayOnGetDamage:
+  - {fileID: 8300000, guid: 5c1a868fe113feb4c9673883f6c54729, type: 3}
+  - {fileID: 8300000, guid: 628df37c36ee85048befeb43c9230004, type: 3}
+  - {fileID: 8300000, guid: a40e728b7585d2341946c0a7ae6caaba, type: 3}
+  - {fileID: 8300000, guid: 801f550570f32f54fa383fac1238cd61, type: 3}
+  - {fileID: 8300000, guid: 191d1658797e20e48b062f0c9f7ee133, type: 3}
   - {fileID: 8300000, guid: d905cd5eb999ad048bbff9e078fc7236, type: 3}
   - {fileID: 8300000, guid: 02513ceaecbd7a445a088bd8b1cf2b8c, type: 3}
   - {fileID: 8300000, guid: ca43aed83ed63ec41ae8d0962e3b05e6, type: 3}
@@ -232,12 +238,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8b41c9360f10b134189acc855559eb67, type: 3}
   - {fileID: 8300000, guid: 27c73385f770ba145ad29053b71d3f31, type: 3}
   - {fileID: 8300000, guid: fb33f1da8fbaa7f4ea63a49a528eddcc, type: 3}
-  sayOnGetDamage:
-  - {fileID: 8300000, guid: 5c1a868fe113feb4c9673883f6c54729, type: 3}
-  - {fileID: 8300000, guid: 628df37c36ee85048befeb43c9230004, type: 3}
-  - {fileID: 8300000, guid: a40e728b7585d2341946c0a7ae6caaba, type: 3}
-  - {fileID: 8300000, guid: 801f550570f32f54fa383fac1238cd61, type: 3}
-  - {fileID: 8300000, guid: 191d1658797e20e48b062f0c9f7ee133, type: 3}
   sayOnDead:
   - {fileID: 8300000, guid: d3d52806b2bc8b8439c880687d97dc76, type: 3}
   - {fileID: 8300000, guid: dea3a81d4d09dcb418dbc353972f90d7, type: 3}
@@ -266,7 +266,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ea3b2d7f53e85ef44b1be4c55009678b, type: 3}
   master: {fileID: 0}
   audio: {fileID: 0}
-  thisIsMaxim: 0
+  thisIsMaxim: 1
 --- !u!1001 &2941677406814650845
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -121,12 +121,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: abf52e00952f2c2419d00342f787b977, type: 3}
   sayOnGetDamage:
   - {fileID: 8300000, guid: 898577f0f3c49e242b289f7dab122e20, type: 3}
+  - {fileID: 8300000, guid: 7f978de40102e8347b53790c6eb76700, type: 3}
   sayOnDead:
   - {fileID: 8300000, guid: 76401ba5495bcab4ab0ed0b0a5c4eee2, type: 3}
   - {fileID: 8300000, guid: cba880a722fa4254499e96605c57122e, type: 3}
   - {fileID: 8300000, guid: 256b66a1498eae74fa2f239ea2e0f05a, type: 3}
+  randomSaysOnTimer: []
   master: {fileID: 0}
   audio: {fileID: 0}
+  thisIsMaxim: 0
 --- !u!1 &5836209239536190622
 GameObject:
   m_ObjectHideFlags: 0

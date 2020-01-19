@@ -19,7 +19,7 @@ public class SoundMaster : MonoBehaviour
 
 
     List<Speaker> activeSpeakers = new List<Speaker>();
-    int maximumSpeakersOnline = 3;
+    int maximumSpeakersOnline = 2;
 
 
 
@@ -29,7 +29,7 @@ public class SoundMaster : MonoBehaviour
         if (canSay)
         {
             activeSpeakers.Add(speaker);
-            StartCoroutine(SpeakerSayTimer(speaker, 2f));
+            StartCoroutine(SpeakerSayTimer(speaker, 3f));
         }
 
         return canSay;

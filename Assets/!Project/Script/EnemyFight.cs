@@ -15,7 +15,7 @@ public class EnemyFight : MonoBehaviour
     void Start()
     {
         spkP = GetComponent<Speaker>();
-        DPC = GetComponent<DeadPeopleCounter>();
+        DPC = Camera.main.GetComponent<DeadPeopleCounter>();
         EnemyHP = EnemyHP_Max;
         AnimaMob = transform.GetChild(1).GetComponent<Animator>();
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
@@ -23,14 +23,18 @@ public class EnemyFight : MonoBehaviour
     }
 
     // Update is called once per frame
+    private bool deadOnece = false;
     void LateUpdate()
     {
-        if (EnemyHP <= 0) {
+        if (EnemyHP <= 0 && !deadOnece)
+        {
+            deadOnece = true;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
             spkP.SayDead();
             DPC.killCounter++;
+            GetComponent<EnemyAI>().StopAllCoroutines();
         }
     }
 
