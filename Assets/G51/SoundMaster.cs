@@ -25,7 +25,7 @@ public class SoundMaster : MonoBehaviour
 
     public bool SpeakerWanaSay(Speaker speaker)
     {
-        bool canSay = (activeSpeakers.Count < maximumSpeakersOnline);
+        bool canSay = (activeSpeakers.Count < maximumSpeakersOnline) || speaker.thisIsMaxim;
         if (canSay)
         {
             activeSpeakers.Add(speaker);
