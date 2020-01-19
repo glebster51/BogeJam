@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     private float basecoord;
     public LayerMask groundMask;
     public float spawnDistance;
-    float spawnHeight = 100f;
+    float spawnHeight = 50f;
 
 
     void Start()
@@ -32,23 +32,25 @@ public class Spawner : MonoBehaviour
     }
 
 
+    public LayerMask raycastTo;
     void SpawnDudes()
     {
         Vector2 leftPoint = (Vector2)player1.transform.position + Vector2.left * spawnDistance;
-        Vector2 rightpoint = (Vector2)player1.transform.position + Vector2.right * spawnDistance;;
+        Vector2 rightpoint = (Vector2)player1.transform.position + Vector2.right * spawnDistance;
         
-        RaycastHit2D leftHitTest = Physics2D.Raycast(leftPoint + Vector2.up * spawnHeight, Vector2.down, 1000f);
-        RaycastHit2D rightHitTest = Physics2D.Raycast(rightpoint + Vector2.up * spawnHeight, Vector2.down, 1000f);
+        RaycastHit2D leftHitTest = Physics2D.Raycast(leftPoint + Vector2.up * spawnHeight, Vector2.down, 1000f, raycastTo);
+        RaycastHit2D rightHitTest = Physics2D.Raycast(rightpoint + Vector2.up * spawnHeight, Vector2.down, 1000f, raycastTo);
 
 
         Vector2 spawnPoint;
 
         bool l = false;
         if (leftHitTest != null)
-            l = leftHitTest.collider.gameObject.layer == groundMask;        
+            l = 1 << leftHitTest.collider.gameObject.layer == groundMask;
+        
         bool r = false;
         if (rightHitTest != null)
-            r = leftHitTest.collider.gameObject.layer == groundMask;
+            r = 1 << rightHitTest.collider.gameObject.layer == groundMask;
         
         if (l && r)
         {
@@ -75,5 +77,18 @@ public class Spawner : MonoBehaviour
        Instantiate(dudes[(Random.Range(0, dudes.Length))], new Vector3(basecoord, Random.Range(9, 10), 0), Quaternion.identity);
        SpawnTimer = Random.Range(10.0f, 15.0f);
        */
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (player1)
+        {
+            Gizmos.color = Color.red;
+            Vector2 leftPoint = (Vector2)player1.transform.position + Vector2.left * spawnDistance;
+            Vector2 rightpoint = (Vector2)player1.transform.position + Vector2.right * spawnDistance;
+            Gizmos.DrawRay(leftPoint + Vector2.up * spawnHeight, Vector3.down * 100f);
+            Gizmos.DrawRay(rightpoint + Vector2.up * spawnHeight, Vector3.down * 100f);
+        }
+
     }
 }
