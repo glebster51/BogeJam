@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public Vector2 distance;
 
     public float eyeDistance = 7f;
-    public float attackDistance = 1f;
+    public float attackDistance = 3f;
     public float attackForce = 10f;
     
     
@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
 
     private void NearingHero()
     {
-        distance = transform.position - PlayerA.transform.position;
+        distance = transform.position + Vector3.up - PlayerA.transform.position;
 
         // ==============   Зона чуйки врага ===============
         bool eyeTest = distance.magnitude < eyeDistance;

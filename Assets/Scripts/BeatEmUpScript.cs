@@ -120,6 +120,8 @@ public class BeatEmUpScript : MonoBehaviour
         GetComponent<Move>().alive = false;
         playerVisual.gameObject.SetActive(false);
         waitToRestartButton = true;
+        UI_manager ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UI_manager>();
+        ui.ShowDeadScreen(true);
     }
 
     void RestartScene()

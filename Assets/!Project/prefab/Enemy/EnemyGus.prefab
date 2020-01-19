@@ -91,7 +91,7 @@ MonoBehaviour:
   sayAfter: 0
   distance: {x: 0, y: 0}
   eyeDistance: 10
-  attackDistance: 1.5
+  attackDistance: 2
   attackForce: 10
   groundLayer:
     serializedVersion: 2
