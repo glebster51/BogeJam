@@ -9,12 +9,12 @@ public class Move : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool isGrounded;
+    public bool canMove;
     public Animator playerAnimator;
     public LayerMask ground;
     // Start is called before the first frame update
     void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -25,9 +25,8 @@ public class Move : MonoBehaviour
     {
 
         Vector3 origin = transform.position + Vector3.up;
-
         RaycastHit2D hit = Physics2D.CircleCast(origin, 1f, Vector2.down, 1f, ground);
-
+        
         if (hit)
         {
             
