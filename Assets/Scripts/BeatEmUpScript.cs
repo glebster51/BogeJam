@@ -20,10 +20,11 @@ public class BeatEmUpScript : MonoBehaviour
     public HealthBar healthBar;
     public MaterialSwapper matSwap;
     DeadPeopleCounter DPC;
-
+    Speaker spkP;
     // Start is called before the first frame update
     void Start()
     {
+        spkP = GetComponent<Speaker>();
         DPC = GetComponent<DeadPeopleCounter>();
         PlayerHP = PlayerHP_Max;
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
@@ -70,6 +71,8 @@ public class BeatEmUpScript : MonoBehaviour
     {
         if (PlayerHP > 0)
         {
+            spkP.SayGetDamage();
+
             Debug.Log("Player gets hurt, Health:" + PlayerHP);
             yield return new WaitForSeconds(0.3f);
             HurtScript(dmg);
@@ -106,7 +109,8 @@ public class BeatEmUpScript : MonoBehaviour
             {
                 Debug.Log("Enemy (" + hit.transform.name + ") Hit");
                 hit.transform.GetComponent<EnemyFight>().MobHurt(attackForce);
-                
+
+                spkP.SayAttack();
             }
         }
     }
@@ -118,6 +122,8 @@ public class BeatEmUpScript : MonoBehaviour
     private bool waitToRestartButton;
     void PlayerDead()
     {
+        spkP.SayDead();
+
         GetComponent<Move>().alive = false;
         playerVisual.gameObject.SetActive(false);
         waitToRestartButton = true;
