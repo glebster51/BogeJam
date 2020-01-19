@@ -11,7 +11,6 @@ public class BeatEmUpScript : MonoBehaviour
     public Animator playerAnimator;
     private SpriteRenderer mySpriteRenderer;
     public GameObject raybox;
-    private Vector2 positionFight;
     public bool HandChange;
     EnemyFight enema;
     public LayerMask DMGCollider;
@@ -38,13 +37,12 @@ public class BeatEmUpScript : MonoBehaviour
         {
             HandChange = !HandChange;
             playerAnimator.SetTrigger("Attack");
-            if (HandChange == true) {
+            if (HandChange)
                 playerAnimator.SetFloat("AttackType", 1f);
-            }
-            if (HandChange == false)
-            {
+       
+            if (!HandChange)
                 playerAnimator.SetFloat("AttackType", 0f);
-            }
+          
             SendDmg();
         }
 
@@ -55,24 +53,25 @@ public class BeatEmUpScript : MonoBehaviour
             playerVisual.localScale = new Vector3(1f, 1f, 1f); // or activate look right some other way
             handsRoot.localScale = new Vector3(1f, 1f, 1f);
             facingRight = true;
-            positionFight = Vector2.right;
         }
         else if (delta.x < 0 && facingRight)
         {
             playerVisual.localScale = new Vector2(-1, 1); // activate looking left
             handsRoot.localScale = new Vector3(-1f, -1f, 1f);
             facingRight = false;
-            positionFight = Vector2.left;
         }
     }
 
     public IEnumerator Attacked(float dmg)
     {
-        Debug.Log("Player gets hurt, Health:" + PlayerHP);
-        yield return new WaitForSeconds(0.3f);
-        HurtScript(dmg);
-        matSwap.SetHitMaterial();
-        StartCoroutine(SetDefMat());
+        if (PlayerHP > 0)
+        {
+            Debug.Log("Player gets hurt, Health:" + PlayerHP);
+            yield return new WaitForSeconds(0.3f);
+            HurtScript(dmg);
+            matSwap.SetHitMaterial();
+            StartCoroutine(SetDefMat());
+        }
     }
 
     IEnumerator SetDefMat()
@@ -83,9 +82,11 @@ public class BeatEmUpScript : MonoBehaviour
     void HurtScript(float damage)
     {
         PlayerHP -= damage;
-        
         if (healthBar)
             healthBar.SetValue(PlayerHP / PlayerHP_Max);
+
+        if (PlayerHP <= 0f)
+            PlayerDead();
     }
     
     // ==================================================================================================
@@ -108,5 +109,11 @@ public class BeatEmUpScript : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(raybox.transform.position, attackDistance);
+    }
+
+    void PlayerDead()
+    {
+        GetComponent<Move>().alive = false;
+        playerVisual.gameObject.SetActive(false);
     }
 }

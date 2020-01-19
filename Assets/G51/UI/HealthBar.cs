@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
     public void SetValue(float newValue)
     {
         gameObject.SetActive(true);
-        value = lValue = newValue;
+        value = lValue = Mathf.Clamp01(newValue);
         Refresh();
     }
 

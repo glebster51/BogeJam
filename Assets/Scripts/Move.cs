@@ -9,13 +9,13 @@ public class Move : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool isGrounded;
-    public bool canMove;
+    public bool alive;
     public Animator playerAnimator;
     public LayerMask ground;
     // Start is called before the first frame update
     void Start()
     {
-        canMove = true;
+        alive = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,19 +29,19 @@ public class Move : MonoBehaviour
         
         if (hit)
         {
-            isGrounded = Vector2.Angle(hit.normal, Vector2.up) < 30;
+            isGrounded = Vector2.Angle(hit.normal, Vector2.up) < 45f;
         }
         else
         {
             isGrounded = false;
         }
 
-        if (((Input.GetKeyDown(KeyCode.Space)) && (isGrounded == true)) && canMove)
+        if (((Input.GetKeyDown(KeyCode.Space)) && (isGrounded == true)) && alive)
         {
             rb.velocity = new Vector2(rb.velocity.x, speedj);
         }
 
-        if (canMove)
+        if (alive)
         {
             float h = Input.GetAxisRaw("Horizontal");
             Vector2 movement = new Vector2(h * speed, rb.velocity.y);

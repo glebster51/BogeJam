@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     
     private float Facing;
     GameObject PlayerA;
+    Move playerMover;
     Animator AnimaMob;
     Rigidbody2D rbm;
     Transform mobVisual;
@@ -27,6 +28,7 @@ public class EnemyAI : MonoBehaviour
         rbm = GetComponent<Rigidbody2D>();
         
        PlayerA = GameObject.FindGameObjectWithTag("Player");
+        playerMover = PlayerA.GetComponent<Move>();
         enemyFight = GetComponent<EnemyFight>();
         AnimaMob = enemyFight.AnimaMob;
         mobVisual = transform.GetChild(1);
@@ -40,7 +42,7 @@ public class EnemyAI : MonoBehaviour
         mobVisual.localScale = new Vector3(Facing, 1f, 1f);
 
         NearingHero();
-        if (hauntedMob && !sayAfter)
+        if (hauntedMob && !sayAfter  && playerMover.alive)
         {
             AnimaMob.SetBool("Walk", true);
             
@@ -95,9 +97,9 @@ public class EnemyAI : MonoBehaviour
         // ==============   Зона Ближнего боя   =============
         
         bool attackTest = distance.magnitude < attackDistance;
-        if (!attackingMob && attackTest)
+        if (!attackingMob && attackTest  && playerMover.alive)
             Attack(true);
-        else if (attackingMob && !attackTest)
+        else if (attackingMob && !attackTest )
             Attack(false);
         attackingMob = attackTest;
     }
