@@ -109,11 +109,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4297873f410e3dd44b6f87bda5b63245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sayOnAwake: []
-  sayOnHunted: []
-  sayOnAttack: []
-  sayOnGetDamage: []
-  sayOnDead: []
+  sayOnAwake:
+  - {fileID: 8300000, guid: 99a8c4d43df3fc84b8a53b3cd1d3d0b3, type: 3}
+  - {fileID: 8300000, guid: dd6cc55686f64c649bb25a08b2618537, type: 3}
+  - {fileID: 8300000, guid: f90b30d6db1a6574f8e74c5f204f5d66, type: 3}
+  sayOnHunted:
+  - {fileID: 8300000, guid: dd6cc55686f64c649bb25a08b2618537, type: 3}
+  - {fileID: 8300000, guid: ecae65ed5819f794a98a714474d94216, type: 3}
+  - {fileID: 8300000, guid: 0e79add1c708faf468b2b15e0fd872ab, type: 3}
+  sayOnAttack:
+  - {fileID: 8300000, guid: e6a1680c5e083f341ac271d4fdacb2dd, type: 3}
+  sayOnGetDamage:
+  - {fileID: 8300000, guid: f90b30d6db1a6574f8e74c5f204f5d66, type: 3}
+  - {fileID: 8300000, guid: f8f247d5b2ef46d4f817dfb05f74cf21, type: 3}
+  - {fileID: 8300000, guid: 4e106375151a60d4a80397686ca4b165, type: 3}
+  - {fileID: 8300000, guid: ecae65ed5819f794a98a714474d94216, type: 3}
+  - {fileID: 8300000, guid: a8f2d7c670fed6f4cb49dcc518876837, type: 3}
+  sayOnDead:
+  - {fileID: 8300000, guid: 62de599294aee324986b21afafaaeae9, type: 3}
+  - {fileID: 8300000, guid: 4f1b5f07ceaffc543b60b7cf30f994a8, type: 3}
+  - {fileID: 8300000, guid: 1d86c287f9ebc6448b997e69cfe09b29, type: 3}
+  - {fileID: 8300000, guid: 48d329bfb6088344c933deea122dbc2d, type: 3}
+  - {fileID: 8300000, guid: 4e106375151a60d4a80397686ca4b165, type: 3}
+  - {fileID: 8300000, guid: 0e79add1c708faf468b2b15e0fd872ab, type: 3}
   master: {fileID: 0}
   audio: {fileID: 0}
 --- !u!1 &7566714691274754340
