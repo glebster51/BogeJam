@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Move : MonoBehaviour
     public bool isGrounded;
     public Animator playerAnimator;
     public LayerMask ground;
+    public bool canMove = true;
+    public BeatEmUpScript bEUs;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,10 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if (bEUs.PlayerHP <= 0) { canMove = false; }
+
+        if (canMove == true) { 
+
 
         Vector3 origin = transform.position + Vector3.up;
 
@@ -55,6 +62,19 @@ public class Move : MonoBehaviour
             playerAnimator.SetBool("run", true);
         }
         else { playerAnimator.SetBool("run", false); }
+
+        }
+        else
+        {
+            Debug.Log("Dead");
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            }
+           
+        }
     }
 
 }
