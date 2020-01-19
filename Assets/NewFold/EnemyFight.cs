@@ -15,6 +15,7 @@ public class EnemyFight : MonoBehaviour
         EnemyHP = EnemyHP_Max;
         AnimaMob = transform.GetChild(1).GetComponent<Animator>();
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
+        healthBar.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

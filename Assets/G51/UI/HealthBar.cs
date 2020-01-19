@@ -22,6 +22,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetValue(float newValue)
     {
+        gameObject.SetActive(true);
         value = lValue = newValue;
         Refresh();
     }

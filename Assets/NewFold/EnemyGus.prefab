@@ -85,11 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4843ad48ecaf2c6418159ffe79520d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobSpeed: 5
+  mobSpeed: 3.5
   hauntedMob: 0
   attackingMob: 0
   sayAfter: 0
-  distance: 0
+  distance: {x: 0, y: 0}
   eyeDistance: 10
   attackDistance: 1.5
   attackForce: 10

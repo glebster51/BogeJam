@@ -28,6 +28,7 @@ public class BeatEmUpScript : MonoBehaviour
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
         playerVisual = transform.GetChild(1);
         matSwap = playerVisual.GetComponent<MaterialSwapper>();
+        healthBar.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
