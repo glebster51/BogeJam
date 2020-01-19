@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7566714691028567298}
   - component: {fileID: 7566714691028567311}
   - component: {fileID: 5955495171141913666}
+  - component: {fileID: 3377146080275850353}
   m_Layer: 0
   m_Name: EnemyEvgen
   m_TagString: Enemy
@@ -96,6 +97,30 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &3377146080275850353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566714691028567310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4297873f410e3dd44b6f87bda5b63245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sayOnAwake:
+  - {fileID: 8300000, guid: 3d4d4f3aa627e7c4e96264a44c8d3a86, type: 3}
+  sayOnHunted:
+  - {fileID: 8300000, guid: b9a71e27dab638a4297b28f056b33971, type: 3}
+  sayOnAttack:
+  - {fileID: 8300000, guid: 2616b1199af72aa408de7a6489bebf67, type: 3}
+  sayOnGetDamage:
+  - {fileID: 8300000, guid: bdb9c7bf84d00c447b026a564c980b5c, type: 3}
+  sayOnDead:
+  - {fileID: 8300000, guid: 5aa070d81040698488f460c824733bac, type: 3}
+  master: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!1 &7566714691274754340
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,11 +255,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7566714691028567299}
     m_Modifications:
-    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 6401191949505308682, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e899fc086bab44680167735684ca03, type: 3}

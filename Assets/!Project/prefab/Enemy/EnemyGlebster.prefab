@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7566714691028567298}
   - component: {fileID: 7566714691028567311}
   - component: {fileID: 5955495171141913666}
+  - component: {fileID: 6502399102028702825}
   m_Layer: 0
   m_Name: EnemyGlebster
   m_TagString: Enemy
@@ -96,6 +97,49 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &6502399102028702825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566714691028567310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4297873f410e3dd44b6f87bda5b63245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sayOnAwake:
+  - {fileID: 8300000, guid: c69c352949ad35b43aeb6e238a4faff8, type: 3}
+  - {fileID: 8300000, guid: 74223d5946a300c47b2492bf0e076da2, type: 3}
+  - {fileID: 8300000, guid: 05ca4b83a8604284aa60f9fd2893808c, type: 3}
+  - {fileID: 8300000, guid: 6d88954d621a5584c89fd70c17040d80, type: 3}
+  sayOnHunted:
+  - {fileID: 8300000, guid: 6d88954d621a5584c89fd70c17040d80, type: 3}
+  - {fileID: 8300000, guid: d6b7d75098da8dc46939ad8431c16fc2, type: 3}
+  - {fileID: 8300000, guid: 00b0b66139cd77448a57de0c0858c56e, type: 3}
+  - {fileID: 8300000, guid: d0014879d2e010b45aec45a79c24c8af, type: 3}
+  - {fileID: 8300000, guid: 5d6a64dbd0f74ca4e8fa074b8d13ff86, type: 3}
+  - {fileID: 8300000, guid: 91e5801108b13bd409c64724502737aa, type: 3}
+  sayOnAttack:
+  - {fileID: 8300000, guid: b70287411ecdf644d8de8d559017888c, type: 3}
+  - {fileID: 8300000, guid: 5db10a7fc53ab094f8125363ef68e00a, type: 3}
+  - {fileID: 8300000, guid: 6771f742e07d49e41a8e5325a8bbfd47, type: 3}
+  - {fileID: 8300000, guid: 7ef7a7b6b8a47964d987f94b5cc22c01, type: 3}
+  sayOnGetDamage:
+  - {fileID: 8300000, guid: e3814c27b8254bc498412ab85568fe14, type: 3}
+  - {fileID: 8300000, guid: c78016e1dff106a44ba3c1a58f31c77f, type: 3}
+  - {fileID: 8300000, guid: ba8b0883fdc29f64fa4efbc3f8be22ac, type: 3}
+  - {fileID: 8300000, guid: c5efa50aa25095346abf9fd6a6fea076, type: 3}
+  - {fileID: 8300000, guid: 0015bf285407ca247a825963786b7b44, type: 3}
+  sayOnDead:
+  - {fileID: 8300000, guid: 4b033ea7e8b1a474c913a1292d608ac1, type: 3}
+  - {fileID: 8300000, guid: 5b514d2ffeb9e73429d07a31adeeb42f, type: 3}
+  - {fileID: 8300000, guid: 86790cef2e4c804469323c63ee9d1352, type: 3}
+  - {fileID: 8300000, guid: da36acbcfe393994ca09b84112db4e54, type: 3}
+  - {fileID: 8300000, guid: 6ba5b7df9903baa47ab40f6835ddf627, type: 3}
+  master: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!1 &7566714691274754340
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,11 +194,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7566714691028567299}
     m_Modifications:
-    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 6401191949505308682, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e899fc086bab44680167735684ca03, type: 3}
