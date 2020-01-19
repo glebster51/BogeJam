@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     public float mobSpeed;
     public bool hauntedMob, attackingMob, sayAfter;
     
-    public float distance;
+    public Vector2 distance;
 
     public float eyeDistance = 7f;
     public float attackDistance = 1f;
@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask groundLayer;
     void Update()
     {
-        Facing = distance < 0 ? 1 : -1;
+        Facing = distance.x < 0 ? 1 : -1;
         mobVisual.localScale = new Vector3(Facing, 1f, 1f);
 
         NearingHero();
@@ -81,10 +81,10 @@ public class EnemyAI : MonoBehaviour
 
     private void NearingHero()
     {
-        distance = transform.position.x - PlayerA.transform.position.x;
+        distance = transform.position - PlayerA.transform.position;
 
         // ==============   Зона чуйки врага ===============
-        bool eyeTest = Mathf.Abs(distance) < eyeDistance;
+        bool eyeTest = distance.magnitude < eyeDistance;
        
         if (!hauntedMob && eyeTest)
             OnFeelPlayer(true);
@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
         hauntedMob = eyeTest;
         // ==============   Зона Ближнего боя   =============
         
-        bool attackTest = Mathf.Abs(distance) < attackDistance;
+        bool attackTest = distance.magnitude < attackDistance;
         if (!attackingMob && attackTest)
             Attack(true);
         else if (attackingMob && !attackTest)
