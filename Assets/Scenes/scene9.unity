@@ -1992,6 +1992,7 @@ MonoBehaviour:
   - {fileID: 7566714691028567310, guid: 060b1ac2f5796ff46982566d434cf058, type: 3}
   - {fileID: 5836209238711322804, guid: 6f62e55761ac221459e8d1c37b06be04, type: 3}
   - {fileID: 7566714691028567310, guid: caf29d75cbdf8d54f86ab7791b1852f2, type: 3}
+  - {fileID: 7566714691028567310, guid: 95d6565a043aa344990ca647f448a663, type: 3}
   player1: {fileID: 1453410723}
   spawnTimer: 5
   spawnTimerRange: {x: 5, y: 10}
