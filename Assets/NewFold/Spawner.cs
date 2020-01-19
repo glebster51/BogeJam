@@ -37,19 +37,27 @@ public class Spawner : MonoBehaviour
         Vector2 leftPoint = (Vector2)player1.transform.position + Vector2.left * spawnDistance;
         Vector2 rightpoint = (Vector2)player1.transform.position + Vector2.right * spawnDistance;;
         
-        RaycastHit2D leftHitTest = Physics2D.Raycast(leftPoint + Vector2.up * spawnHeight, Vector2.down, 1000f, groundMask);
-        RaycastHit2D rightHitTest = Physics2D.Raycast(rightpoint + Vector2.up * spawnHeight, Vector2.down, 1000f, groundMask);
+        RaycastHit2D leftHitTest = Physics2D.Raycast(leftPoint + Vector2.up * spawnHeight, Vector2.down, 1000f);
+        RaycastHit2D rightHitTest = Physics2D.Raycast(rightpoint + Vector2.up * spawnHeight, Vector2.down, 1000f);
 
 
         Vector2 spawnPoint;
-        if (leftHitTest && leftHitTest)
+
+        bool l = false;
+        if (leftHitTest != null)
+            l = leftHitTest.collider.gameObject.layer == groundMask;        
+        bool r = false;
+        if (rightHitTest != null)
+            r = leftHitTest.collider.gameObject.layer == groundMask;
+        
+        if (l && r)
         {
             float side = Mathf.RoundToInt(Random.Range(0f, 1f));
             spawnPoint = Vector2.Lerp(leftHitTest.point, rightHitTest.point, side);
         }
-        else if (leftHitTest || leftHitTest)
+        else if (l || r)
         {
-            spawnPoint = leftHitTest ? leftHitTest.point : rightHitTest.point;
+            spawnPoint = l ? leftHitTest.point : rightHitTest.point;
         }
         else
         {
