@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5836209238711322808}
   - component: {fileID: 5836209238711322805}
   - component: {fileID: 2686940831402941877}
+  - component: {fileID: 5920855796541663749}
   m_Layer: 0
   m_Name: EnemyGus
   m_TagString: Enemy
@@ -96,6 +97,29 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &5920855796541663749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836209238711322804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4297873f410e3dd44b6f87bda5b63245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sayOnAwake:
+  - {fileID: 8300000, guid: 07de2c611fdd27145976358655305aeb, type: 3}
+  - {fileID: 8300000, guid: 854c5ecef48305a4381b6f1fcc2e2997, type: 3}
+  - {fileID: 8300000, guid: f576afe7bc05be24ab1f01e759648cf4, type: 3}
+  - {fileID: 8300000, guid: 7f978de40102e8347b53790c6eb76700, type: 3}
+  sayOnHunted: []
+  sayOnAttack: []
+  sayOnGetDamage: []
+  sayOnDead: []
+  master: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!1 &5836209239536190622
 GameObject:
   m_ObjectHideFlags: 0
