@@ -93,7 +93,7 @@ MonoBehaviour:
   distance: {x: 0, y: 0}
   eyeDistance: 7
   attackDistance: 2
-  attackForce: 10
+  attackForce: 7
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -182,10 +182,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7566714691028567299}
     m_Modifications:
-    - target: {fileID: 79920727735511285, guid: 57e899fc086bab44680167735684ca03,
+    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
-      propertyPath: value
-      value: 1
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 6401191949505308682, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
@@ -242,6 +242,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 79920727735511285, guid: 57e899fc086bab44680167735684ca03,
+        type: 3}
+      propertyPath: value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832684606509138549, guid: 57e899fc086bab44680167735684ca03,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7424620470930273818, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
       propertyPath: m_Color.r
@@ -256,16 +266,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.32176802
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832684606509138549, guid: 57e899fc086bab44680167735684ca03,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e899fc086bab44680167735684ca03, type: 3}

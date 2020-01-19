@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHP: 0
   PlayerHP_Max: 100
-  attackForce: 10
+  attackForce: 5
   facingRight: 0
   playerAnimator: {fileID: 5317446605240215633}
   raybox: {fileID: 8391476875424770935}
@@ -111,6 +111,7 @@ MonoBehaviour:
   speedj: 12
   rb: {fileID: 8391476875900869951}
   isGrounded: 0
+  alive: 0
   playerAnimator: {fileID: 5317446605240215633}
   ground:
     serializedVersion: 2
