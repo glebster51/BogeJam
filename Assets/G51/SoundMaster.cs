@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoundMaster : MonoBehaviour
 {
     static SoundMaster instance = null;
-
     public static SoundMaster GetMaster()
     {
         if (instance == null)
