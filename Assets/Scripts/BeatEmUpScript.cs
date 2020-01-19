@@ -89,10 +89,11 @@ public class BeatEmUpScript : MonoBehaviour
     
     // ==================================================================================================
 
+    public float attackDistance = 2.5f;
     public void SendDmg()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, handsRoot.right, 2.5f, DMGCollider);
+        RaycastHit2D hit = Physics2D.Raycast(raybox.transform.position, handsRoot.right, attackDistance, DMGCollider);
         
         if (hit) {
         if (hit.transform.tag == "Enemy")
@@ -102,5 +103,9 @@ public class BeatEmUpScript : MonoBehaviour
                 
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(raybox.transform.position, attackDistance);
     }
 }
