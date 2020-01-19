@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8391476875900869889}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8391476875900869949
 GameObject:
@@ -62,8 +62,8 @@ Transform:
   m_LocalPosition: {x: -4.807, y: 1.789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5317446605240215632}
   - {fileID: 8391476875424770934}
+  - {fileID: 5317446605240215632}
   - {fileID: 8072537602040818135}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHP: 0
+  PlayerHP_Max: 100
+  attackForce: 10
   facingRight: 0
   playerAnimator: {fileID: 5317446605240215633}
   raybox: {fileID: 8391476875424770935}
@@ -90,6 +92,8 @@ MonoBehaviour:
     m_Bits: 512
   playerVisual: {fileID: 5317446605240215632}
   handsRoot: {fileID: 1837019555577182183}
+  healthBar: {fileID: 0}
+  matSwap: {fileID: 0}
 --- !u!114 &8391476875900869948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 4449519330439172171, guid: 2864f63a4f56a2941b102b3a1e8cfc78,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4449519330439172171, guid: 2864f63a4f56a2941b102b3a1e8cfc78,
         type: 3}

@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
 
     public float eyeDistance = 7f;
     public float attackDistance = 1f;
+    public float attackForce = 10f;
     
     
     
@@ -19,19 +20,16 @@ public class EnemyAI : MonoBehaviour
     Animator AnimaMob;
     Rigidbody2D rbm;
     Transform mobVisual;
+    EnemyFight enemyFight;
     // Start is called before the first frame update
     void Start()
     {
-        mobSpeed = 1;
         rbm = GetComponent<Rigidbody2D>();
         
        PlayerA = GameObject.FindGameObjectWithTag("Player");
-        AnimaMob = GetComponent<EnemyFight>().AnimaMob;
+        enemyFight = GetComponent<EnemyFight>();
+        AnimaMob = enemyFight.AnimaMob;
         mobVisual = transform.GetChild(1);
-
-        
-        
-        
     }
 
     // Update is called once per frame
@@ -45,8 +43,6 @@ public class EnemyAI : MonoBehaviour
         if (hauntedMob && !sayAfter)
         {
             AnimaMob.SetBool("Walk", true);
-
-            
             
             float movement = mobSpeed * Time.deltaTime;
 
@@ -69,7 +65,6 @@ public class EnemyAI : MonoBehaviour
 
         if (attackingMob)
         {   
-            AnimaMob.SetTrigger("Attack");
             AnimaMob.SetBool("Walk", false);
         }
         
@@ -145,12 +140,21 @@ public class EnemyAI : MonoBehaviour
     {
         if (startOrEnd)
         {
+            enemyFight.attackCoroutine = StartCoroutine(PlayerA.GetComponent<BeatEmUpScript>().Attacked(attackForce));
+            AnimaMob.SetTrigger("Attack");
+            StartCoroutine(AttackingMobCooldown(0.5f));
             Debug.Log("Я " + gameObject.name + " АТАКУЮ НАЗУЙ!!!");
         }
         else
         {
             Debug.Log("Я " + gameObject.name + ", НЕ МОГУ ДОТЯНУТЬСЯ, ОН ПРЫТКИЙ СУК...");
         }
+    }
+
+    IEnumerator AttackingMobCooldown(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        attackingMob = false;
     }
     
     

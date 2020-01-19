@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class EnemyFight : MonoBehaviour
 {
-    public float EnemyHP;
+    public float EnemyHP = 100f;
+    public float EnemyHP_Max = 100f;
     public Animator AnimaMob;
+    public HealthBar healthBar;
+    public Coroutine attackCoroutine;
     // Start is called before the first frame update
     void Start()
     {
-        EnemyHP = 100;
+        EnemyHP = EnemyHP_Max;
         AnimaMob = transform.GetChild(1).GetComponent<Animator>();
+        healthBar = transform.GetChild(2).GetComponent<HealthBar>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (EnemyHP <= 0)
-        {
             Destroy(gameObject);
-        }
     }
 
-    public void MobHurt()
+    public void MobHurt(float damage)
     {
-        EnemyHP = EnemyHP - 10;
+        if (attackCoroutine != null)
+            StopCoroutine(attackCoroutine);
+        
+        EnemyHP -= damage;
         AnimaMob.SetTrigger("getDmg");
-
+        if (healthBar)
+            healthBar.SetValue(EnemyHP / EnemyHP_Max);
     }
 }

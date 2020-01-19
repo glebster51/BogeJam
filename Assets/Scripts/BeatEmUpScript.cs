@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BeatEmUpScript : MonoBehaviour
 {
-    public float PlayerHP;
+    public float PlayerHP= 100f;
+    public float PlayerHP_Max = 100f;
+    public float attackForce = 10f;
     public bool facingRight;
     public Animator playerAnimator;
     private SpriteRenderer mySpriteRenderer;
@@ -15,13 +17,17 @@ public class BeatEmUpScript : MonoBehaviour
     public LayerMask DMGCollider;
     public Transform playerVisual;
     public Transform handsRoot;
+    public HealthBar healthBar;
+    public MaterialSwapper matSwap;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerHP = 100;
-        
+        PlayerHP = PlayerHP_Max;
+        healthBar = transform.GetChild(2).GetComponent<HealthBar>();
+        playerVisual = transform.GetChild(1);
+        matSwap = playerVisual.GetComponent<MaterialSwapper>();
     }
 
     // Update is called once per frame
@@ -58,25 +64,30 @@ public class BeatEmUpScript : MonoBehaviour
             positionFight = Vector2.left;
         }
     }
-    
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public IEnumerator Attacked(float dmg)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            StartCoroutine(Attacked());
-            Debug.Log("Player gets hurt, Health:"+PlayerHP);
-        }
+        Debug.Log("Player gets hurt, Health:" + PlayerHP);
+        yield return new WaitForSeconds(0.3f);
+        HurtScript(dmg);
+        matSwap.SetHitMaterial();
+        StartCoroutine(SetDefMat());
     }
-    IEnumerator Attacked()
+
+    IEnumerator SetDefMat()
     {
-        HurtScript();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
+        matSwap.SetDefaultMaterial();
     }
-    void HurtScript()
+    void HurtScript(float damage)
     {
-        PlayerHP -= 10;
+        PlayerHP -= damage;
+        
+        if (healthBar)
+            healthBar.SetValue(PlayerHP / PlayerHP_Max);
     }
+    
+    // ==================================================================================================
 
     public void SendDmg()
     {
@@ -87,7 +98,7 @@ public class BeatEmUpScript : MonoBehaviour
         if (hit.transform.tag == "Enemy")
             {
                 Debug.Log("Enemy (" + hit.transform.name + ") Hit");
-                hit.transform.GetComponent<EnemyFight>().MobHurt();
+                hit.transform.GetComponent<EnemyFight>().MobHurt(attackForce);
                 
             }
         }

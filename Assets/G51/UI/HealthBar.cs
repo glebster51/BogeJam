@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
     }
 
 
-    private void SetValue(float newValue)
+    public void SetValue(float newValue)
     {
         value = lValue = newValue;
         Refresh();

@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 0
+  EnemyHP_Max: 100
   AnimaMob: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!50 &7566714691028567311
 Rigidbody2D:
   serializedVersion: 4
@@ -83,13 +85,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4843ad48ecaf2c6418159ffe79520d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobSpeed: 1
+  mobSpeed: 5
   hauntedMob: 0
   attackingMob: 0
   sayAfter: 0
   distance: 0
   eyeDistance: 7
   attackDistance: 1
+  attackForce: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
