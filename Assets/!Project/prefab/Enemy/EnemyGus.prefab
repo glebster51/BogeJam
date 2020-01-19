@@ -114,10 +114,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 854c5ecef48305a4381b6f1fcc2e2997, type: 3}
   - {fileID: 8300000, guid: f576afe7bc05be24ab1f01e759648cf4, type: 3}
   - {fileID: 8300000, guid: 7f978de40102e8347b53790c6eb76700, type: 3}
-  sayOnHunted: []
-  sayOnAttack: []
-  sayOnGetDamage: []
-  sayOnDead: []
+  sayOnHunted:
+  - {fileID: 8300000, guid: ed0cf5b457a4f1a48a7c494575db32b6, type: 3}
+  sayOnAttack:
+  - {fileID: 8300000, guid: 69067fec538031a45b1b6adb6ae4be15, type: 3}
+  - {fileID: 8300000, guid: abf52e00952f2c2419d00342f787b977, type: 3}
+  sayOnGetDamage:
+  - {fileID: 8300000, guid: 898577f0f3c49e242b289f7dab122e20, type: 3}
+  sayOnDead:
+  - {fileID: 8300000, guid: 76401ba5495bcab4ab0ed0b0a5c4eee2, type: 3}
+  - {fileID: 8300000, guid: cba880a722fa4254499e96605c57122e, type: 3}
+  - {fileID: 8300000, guid: 256b66a1498eae74fa2f239ea2e0f05a, type: 3}
   master: {fileID: 0}
   audio: {fileID: 0}
 --- !u!1 &5836209239536190622
@@ -249,11 +256,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5836209238711322809}
     m_Modifications:
-    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 6401191949505308682, guid: 57e899fc086bab44680167735684ca03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -308,6 +310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013582163099208278, guid: 57e899fc086bab44680167735684ca03,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e899fc086bab44680167735684ca03, type: 3}
