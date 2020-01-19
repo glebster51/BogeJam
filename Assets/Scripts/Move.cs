@@ -15,6 +15,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,13 +24,11 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-
         Vector3 origin = transform.position + Vector3.up;
         RaycastHit2D hit = Physics2D.CircleCast(origin, 1f, Vector2.down, 1f, ground);
         
         if (hit)
         {
-            
             isGrounded = Vector2.Angle(hit.normal, Vector2.up) < 30;
         }
         else
@@ -37,23 +36,23 @@ public class Move : MonoBehaviour
             isGrounded = false;
         }
 
-
-
-
-        if (((Input.GetKeyDown(KeyCode.Space)) && (isGrounded == true)))
+        if (((Input.GetKeyDown(KeyCode.Space)) && (isGrounded == true)) && canMove)
         {
-
             rb.velocity = new Vector2(rb.velocity.x, speedj);
         }
 
-        float h = Input.GetAxisRaw("Horizontal");
-        Vector2 movement = new Vector2(h * speed, rb.velocity.y);
-        rb.velocity = Vector2.Lerp(rb.velocity, movement, 1);
-        if (Input.GetAxis("Horizontal") != 0)
+        if (canMove)
         {
-            playerAnimator.SetBool("run", true);
+            float h = Input.GetAxisRaw("Horizontal");
+            Vector2 movement = new Vector2(h * speed, rb.velocity.y);
+            rb.velocity = Vector2.Lerp(rb.velocity, movement, 1);
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                playerAnimator.SetBool("run", true);
+            }
+            else { playerAnimator.SetBool("run", false); }
         }
-        else { playerAnimator.SetBool("run", false); }
+
     }
 
 }
