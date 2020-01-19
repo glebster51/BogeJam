@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     public float eyeDistance = 7f;
     public float attackDistance = 3f;
     public float attackForce = 10f;
-    
+    Speaker spkP;
     
     
     private float Facing;
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rbm = GetComponent<Rigidbody2D>();
-        
+        spkP = GetComponent<Speaker>();
        PlayerA = GameObject.FindGameObjectWithTag("Player");
         playerMover = PlayerA.GetComponent<Move>();
         enemyFight = GetComponent<EnemyFight>();
@@ -110,6 +110,10 @@ public class EnemyAI : MonoBehaviour
         if (feel)
         {
             Debug.Log("Я " + gameObject.name + " ПИЗДУЮ БЛЯ!!!");
+
+            spkP.SayHanted();
+
+
         }
         else
         {
@@ -146,6 +150,9 @@ public class EnemyAI : MonoBehaviour
             AnimaMob.SetTrigger("Attack");
             StartCoroutine(AttackingMobCooldown(0.5f));
             Debug.Log("Я " + gameObject.name + " АТАКУЮ НАЗУЙ!!!");
+
+            spkP.SayAttack();
+
         }
         else
         {

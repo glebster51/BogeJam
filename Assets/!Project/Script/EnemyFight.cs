@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFight : MonoBehaviour
 {
+    Speaker spkP;
     public float EnemyHP = 100f;
     public float EnemyHP_Max = 100f;
     public Animator AnimaMob;
@@ -13,6 +14,7 @@ public class EnemyFight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spkP = GetComponent<Speaker>();
         DPC = GetComponent<DeadPeopleCounter>();
         EnemyHP = EnemyHP_Max;
         AnimaMob = transform.GetChild(1).GetComponent<Animator>();
@@ -27,7 +29,7 @@ public class EnemyFight : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
-        
+            spkP.SayDead();
             DPC.killCounter++;
         }
     }
@@ -36,7 +38,7 @@ public class EnemyFight : MonoBehaviour
     {
         if (attackCoroutine != null)
             StopCoroutine(attackCoroutine);
-        
+        spkP.SayGetDamage();
         EnemyHP -= damage;
         AnimaMob.SetTrigger("getDmg");
         if (healthBar)
