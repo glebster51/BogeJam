@@ -19,11 +19,12 @@ public class BeatEmUpScript : MonoBehaviour
     public Transform handsRoot;
     public HealthBar healthBar;
     public MaterialSwapper matSwap;
-
+    DeadPeopleCounter DPC;
 
     // Start is called before the first frame update
     void Start()
     {
+        DPC = GetComponent<DeadPeopleCounter>();
         PlayerHP = PlayerHP_Max;
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
         playerVisual = transform.GetChild(1);
@@ -130,7 +131,9 @@ public class BeatEmUpScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                DPC.killCounter = 0;
             }
         }
     }
