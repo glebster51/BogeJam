@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BeatEmUpScript : MonoBehaviour
 {
@@ -60,6 +61,8 @@ public class BeatEmUpScript : MonoBehaviour
             handsRoot.localScale = new Vector3(-1f, -1f, 1f);
             facingRight = false;
         }
+
+        RestartScene();
     }
 
     public IEnumerator Attacked(float dmg)
@@ -111,9 +114,22 @@ public class BeatEmUpScript : MonoBehaviour
         Gizmos.DrawWireSphere(raybox.transform.position, attackDistance);
     }
 
+    private bool waitToRestartButton;
     void PlayerDead()
     {
         GetComponent<Move>().alive = false;
         playerVisual.gameObject.SetActive(false);
+        waitToRestartButton = true;
+    }
+
+    void RestartScene()
+    {
+        if (waitToRestartButton)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
     }
 }
