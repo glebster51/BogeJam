@@ -13,7 +13,7 @@ public class EnemyFight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DPC = GetComponent<DeadPeopleCounter>();
+        DPC = Camera.main.GetComponent<DeadPeopleCounter>();
         EnemyHP = EnemyHP_Max;
         AnimaMob = transform.GetChild(1).GetComponent<Animator>();
         healthBar = transform.GetChild(2).GetComponent<HealthBar>();
@@ -21,14 +21,15 @@ public class EnemyFight : MonoBehaviour
     }
 
     // Update is called once per frame
+    private bool doOnce;
     void LateUpdate()
     {
-        if (EnemyHP <= 0) {
+        if (EnemyHP <= 0 && !doOnce) {
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
-        
             DPC.killCounter++;
+            doOnce = true;
         }
     }
 

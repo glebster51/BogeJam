@@ -5,22 +5,17 @@ using UnityEngine.UI;
 
 public class DeadPeopleCounter : MonoBehaviour
 {
-    public float killCounter;
+    public float killCounter = 0f;
     public Text textOfScore;
-    // Start is called before the first frame update
+    
     void Start()
     {
         killCounter = 0;
-        textOfScore = GetComponent<Text>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        Debug.Log(killCounter);
+        //Debug.Log(killCounter);
         textOfScore.text = killCounter.ToString();
-
-
-
     }
 }

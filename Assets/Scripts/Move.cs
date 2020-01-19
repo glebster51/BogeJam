@@ -25,7 +25,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         Vector3 origin = transform.position + Vector3.up;
-        RaycastHit2D hit = Physics2D.CircleCast(origin, 1f, Vector2.down, 1f, ground);
+        RaycastHit2D hit = Physics2D.CircleCast(origin, 0.3f, Vector2.down, 1.3f, ground);
         
         if (hit)
         {
